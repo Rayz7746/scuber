@@ -1,0 +1,36 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# PHP settings
+php_flag display_errors on
+php_value error_reporting E_ALL
+
+# If the requested file or directory exists, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Handle specific API endpoints
+RewriteRule ^api/driver-login$ api/driver-login.php [L]
+RewriteRule ^api/driver-signup$ api/driver-signup.php [L]
+RewriteRule ^api/passenger-login$ api/passenger-login.php [L]
+RewriteRule ^api/passenger-signup$ api/passenger-signup.php [L]
+RewriteRule ^api/drivers$ api/drivers.php [L]
+RewriteRule ^api/passengers$ api/passengers.php [L]
+RewriteRule ^api/passengers/drivers$ api/drivers.php [L]
+RewriteRule ^api/drivers/passengers$ api/passengers.php [L]
+
+# Handle other API requests
+RewriteRule ^api/(.*)$ api/$1.php [L]
+
+# Handle static files
+RewriteRule ^(css|js|images)/(.*)$ public/$1/$2 [L]
+
+# HTML files redirect (if you want to use redirect.php)
+RewriteRule ^([^/]+)\.html$ redirect.php?page=$1 [L]
+
+# Default index files
+DirectoryIndex index.php index.html
+
+# For the root URL, use index.php
+RewriteRule ^$ index.php [L]

@@ -80,7 +80,7 @@
       const password = document.getElementById('password').value;
       const errorMessage = document.querySelector('.error-message');
 
-      fetch('http://localhost:3000/api/passenger-login', {
+      fetch('../api/passenger-login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
