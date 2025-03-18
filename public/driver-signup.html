@@ -339,7 +339,6 @@ function handleSubmit(event) {
       if (coordinates) {
         const { latitude, longitude } = coordinates;
 
-        // Create JSON object
         const driverData = {
           name: name,
           username: username,
@@ -347,10 +346,16 @@ function handleSubmit(event) {
           major: major,
           homeLocation: homeLocation,
           homeCoordinates: {
-            latitude: latitude,
-            longitude: longitude
+            latitude: coordinates.latitude,
+            longitude: coordinates.longitude
           },
-          schedule: schedule,
+          schedule: {
+            monday: document.getElementById('scheduleMonday').value,
+            tuesday: document.getElementById('scheduleTuesday').value,
+            wednesday: document.getElementById('scheduleWednesday').value,
+            thursday: document.getElementById('scheduleThursday').value,
+            friday: document.getElementById('scheduleFriday').value
+          },
           musicTastes: musicTastes,
           gender: gender,
           genderPreference: genderPreference,
@@ -358,7 +363,9 @@ function handleSubmit(event) {
         };
 
         // Send data to server
-        fetch('../api/driver-signup', {
+        // Get the base URL dynamically
+        const basePath = window.location.pathname.split('/public/')[0];
+        fetch(`/coen161/scuber/api/driver-signup.php`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

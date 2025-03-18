@@ -347,10 +347,16 @@ function handleSubmit(event) {
           major: major,
           homeLocation: homeLocation,
           homeCoordinates: {
-            latitude: latitude,
-            longitude: longitude
+            latitude: coordinates.latitude,
+            longitude: coordinates.longitude
           },
-          schedule: schedule,
+          schedule: {
+            monday: document.getElementById('scheduleMonday').value,
+            tuesday: document.getElementById('scheduleTuesday').value,
+            wednesday: document.getElementById('scheduleWednesday').value,
+            thursday: document.getElementById('scheduleThursday').value,
+            friday: document.getElementById('scheduleFriday').value
+          },
           musicTastes: musicTastes,
           gender: gender,
           genderPreference: genderPreference,
@@ -358,7 +364,7 @@ function handleSubmit(event) {
         };
 
         // Send data to server
-        fetch('../api/passenger-signup', {
+        fetch('/coen161/scuber/api/passenger-signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

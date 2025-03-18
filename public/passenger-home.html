@@ -85,7 +85,7 @@
 
       const priorities = Array.from(document.getElementById('priorities').selectedOptions).map(option => option.value);
 
-      fetch('../api/passengers/drivers', {
+      fetch('/coen161/scuber/api/drivers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
