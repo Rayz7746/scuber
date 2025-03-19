@@ -8,12 +8,37 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/responsive.css">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-car,.fa-person-hiking {font-size:200px}
 .passenger {margin-right: 300px}
 .container-buttons {display:inline-block}
+
+/* Additional styles for help page */
+@media screen and (max-width: 600px) {
+  .help-header {
+    padding-top: 60px !important;
+  }
+  
+  #navDemo {
+    top: 57px !important;
+  }
+  
+  .email-chat-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .email-chat-buttons a {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 10px;
+  }
+}
 </style>
 </head>
 <body>
@@ -25,12 +50,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Home</a>
     <a href="driver-login.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Driver</a>
     <a href="passenger-login.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Passenger</a>
-    
-    <a href="help.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white">Help</a>
+    <a href="help.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-white current-page">Help</a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
     <a href="driver-login.html" class="w3-bar-item w3-button w3-padding-large">Driver</a>
     <a href="passenger-login.html" class="w3-bar-item w3-button w3-padding-large">Passenger</a>
     <a href="help.html" class="w3-bar-item w3-button w3-padding-large">Help</a>
@@ -38,16 +63,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Header -->
-<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+<header class="w3-container w3-red w3-center help-header" style="padding:128px 16px">
   <h1 class="w3-margin w3-jumbo">FAQ</h1>
   <p class="w3-xlarge">Question Not Answered? Reach out to us below!</p>
-  <div class="container-buttons">
-    <a href="driver-signup.html">
-    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">E-Mail</button>
-</a>
-<a href="passenger-signup.html">
-    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Live Chat</button>
-</a>
+  <div class="container-buttons email-chat-buttons">
+    <a href="mailto:support@scurideshare.com">
+      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">E-Mail</button>
+    </a>
+    <a href="#live-chat">
+      <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Live Chat</button>
+    </a>
   </div>
 </header>
 
@@ -56,7 +81,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-content">
     <div class="w3-twothird">
       <h1>How does it work?</h1>
-      <h5 class="w3-padding-32"> The Magic Behind The Scenes</h5>
+      <h5 class="w3-padding-32">The Magic Behind The Scenes</h5>
       <p class="w3-text-grey">It's simple: just answer the questions, choose the criteria you care about the most, and let us do the work. Our algorithm weighs out your answers, giving emphasis to the one you prioritize to find you the best partner.</p>
     </div>
 
@@ -75,12 +100,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
     <div class="w3-twothird">
       <h1>Isn't this gonna cost me a lot?</h1>
-      <h5 class="w3-padding-32"> Why wouldn't I just use Uber or Lyft?</h5>
+      <h5 class="w3-padding-32">Why wouldn't I just use Uber or Lyft?</h5>
       <p class="w3-text-grey">Nope, and like with everything: the more the merrier. Ideally, your driver or your passenger(s) aren't too far out of the way. You're not incurring much cost picking them up, but they're certainly paying more than the difference. For them, that amount isn't much either -- way less than the big ridesharing giants.</p>
     </div>
   </div>
 </div>
-
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
 
@@ -108,6 +132,20 @@ function myFunction() {
     x.className = x.className.replace(" w3-show", "");
   }
 }
+
+// Window load event to set the current page
+window.addEventListener('load', function() {
+  // Add current-page class to the Help link in the top bar
+  document.querySelector('.w3-bar a[href="help.html"]').classList.add('current-page');
+});
+
+// Close mobile menu on window resize
+window.addEventListener('resize', function() {
+  var x = document.getElementById("navDemo");
+  if (window.innerWidth > 600) {
+    x.className = x.className.replace(" w3-show", "");
+  }
+});
 </script>
 
 </body>

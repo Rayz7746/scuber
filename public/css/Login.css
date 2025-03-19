@@ -1,67 +1,64 @@
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-}
-
-
-
-.error-message {
-    color: red; /* Red color for the error message */
-}
-
-
-form {
-    width: 90%;
-    margin: 0 auto;
-}
-
-form label,
-form input {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-
-
-.button_container {
-    text-align: center;
-    justify-content: center;
-    display: flex;
-}
-
-button {
-    background-color:#F44336;
-    color: White;
-    font-weight: bolder;
-    margin-top: 5%;
-    transition-duration: 0.5s;
-    scale: 1.4;
-    width: auto;
-    height: auto;
-    word-wrap: anywhere;
-}
-
-button:hover {
-    background-color:#F44336;
-    transition-duration: 0.5s;
-    transform: scale(1.5);
-    #animation: rainbow_pulse 10s infinite ease-in-out;
-}
-button:active {
-    transform: translateY(50%);
-}
-
-@keyframes rainbow_pulse {
-    0% { background-color: red; transform: scale(1);}
-    16.67% { background-color: orange; }
-    33.33% { background-color: yellow; }
-    50% { background-color: green; transform: scale(2);}
-    66.67% { background-color: blue; }
-    83.33% { background-color: indigo; }
-    100% { background-color: violet; transform: scale(1);}
-}
+/* Mobile-friendly improvements that don't conflict with existing styles */
+@media screen and (max-width: 768px) {
+    body {
+      padding: 15px;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    /* Make form inputs more touch-friendly */
+    input[type="text"],
+    input[type="password"] {
+      height: 44px;
+      font-size: 16px; /* Prevents iOS zoom on focus */
+      padding: 10px;
+      border-radius: 4px;
+    }
+    
+    /* Improve the login button */
+    form button {
+      height: 50px;
+      font-size: 16px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+    /* Better error message positioning */
+    .error-message {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+  
+  /* General improvements for all screen sizes */
+  .error-message {
+    margin: 15px 0;
+    font-weight: bold;
+  }
+  
+  /* Improve focus states for better accessibility */
+  input:focus {
+    outline: 2px solid rgba(244, 67, 54, 0.4);
+    outline-offset: 2px;
+  }
+  
+  /* Login button active state */
+  form button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Add a subtle animation to the error message */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .error-message:not(:empty) {
+    animation: fadeIn 0.3s ease-in-out;
+  }

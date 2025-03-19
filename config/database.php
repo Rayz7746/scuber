@@ -36,7 +36,6 @@ class Database {
 
     // Get PDO connection
     public function getConnection() {
-        // In your Database constructor after creating the PDO connection:
         $this->pdo->exec("SET NAMES utf8mb4");
         $this->pdo->exec("SET innodb_strict_mode=0");
         return $this->pdo;

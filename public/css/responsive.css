@@ -1,0 +1,101 @@
+/* Responsive styles for SCU Rideshare */
+
+/* Base navbar styles */
+.w3-bar.w3-red {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  /* Header adjustments for mobile */
+  @media screen and (max-width: 768px) {
+    header.w3-container.w3-red.w3-center {
+      padding: 100px 16px 60px 16px !important;
+    }
+    
+    .w3-margin.w3-jumbo {
+      font-size: 48px !important;
+      margin-top: 40px !important;
+    }
+    
+    .w3-xlarge {
+      font-size: 18px !important;
+    }
+    
+    .container-buttons {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      width: 100% !important;
+    }
+    
+    .container-buttons a {
+      width: 100% !important;
+      max-width: 280px !important;
+    }
+    
+    .container-buttons button {
+      width: 100% !important;
+      margin: 8px 0 !important;
+    }
+  }
+  
+  /* Hamburger menu improvements */
+  .w3-bar-item.w3-button.w3-hide-medium.w3-hide-large.w3-right {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .w3-bar-item.w3-button.w3-hide-medium.w3-hide-large.w3-right {
+      display: block !important;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    
+    .w3-bar-item.w3-button.w3-hide-small {
+      display: none !important;
+    }
+    
+    /* Mobile menu dropdown */
+    #navDemo.w3-show {
+      display: block !important;
+      position: absolute;
+      top: 57px;
+      width: 100%;
+      z-index: 1001;
+    }
+    
+    /* Add shadow to the dropdown for better visual separation */
+    #navDemo.w3-bar-block.w3-white.w3-show {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Fix for the passenger image overflow */
+    .passenger {
+      margin-right: 0 !important;
+      max-width: 100%;
+    }
+  }
+  
+  /* Fix for grid content on smaller screens */
+  @media screen and (max-width: 768px) {
+    .w3-row-padding .w3-content {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .w3-row-padding .w3-twothird,
+    .w3-row-padding .w3-third {
+      width: 100% !important;
+      text-align: center;
+    }
+    
+    .w3-row-padding .w3-third.w3-center {
+      order: 1;
+    }
+    
+    .w3-row-padding .w3-twothird {
+      order: 2;
+    }
+  }

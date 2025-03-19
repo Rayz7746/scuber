@@ -1,0 +1,39 @@
+/* Minimal mobile-friendly responsive styles */
+@media screen and (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
+    
+    h1 {
+      font-size: 1.6rem;
+    }
+    
+    /* Keep multi-select working while making it more mobile-friendly */
+    #priorities {
+      font-size: 16px;
+      width: 100%;
+    }
+    
+    /* Simple button enhancements */
+    form button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+      font-size: 16px;
+    }
+    
+    /* Responsive driver cards */
+    #driverList {
+      width: 100%;
+    }
+    
+    .driver-item {
+      margin-bottom: 12px;
+      padding: 12px;
+    }
+  }
+  
+  /* Very minimal general improvements with no conflicting selectors */
+  .driver-item p {
+    margin: 6px 0;
+  }
