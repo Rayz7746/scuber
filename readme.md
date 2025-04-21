@@ -1,3 +1,7 @@
+# Scuber
+
+This is the final project for Coen160 (Web Design)
+
 # Scuber Project Database Setup
 
 This project uses MySQL as its database. Follow these instructions to set up the database on your system.
